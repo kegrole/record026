@@ -1,0 +1,87 @@
+{
+  "summary": {
+    "reasons": {
+      "alg_mismatch": 1,
+      "alg_none": 1,
+      "bad_kid": 1,
+      "expired": 1,
+      "not_yet_valid": 1
+    },
+    "rejected": 5,
+    "total": 6,
+    "valid": 1
+  },
+  "tokens": [
+    {
+      "claims": {
+        "aud": [
+          "demo-client",
+          "demo-other"
+        ],
+        "exp": 4102444800,
+        "iat": 1700000000,
+        "iss": "demo-issuer",
+        "nbf": 1700000000,
+        "sub": "user-1"
+      },
+      "reason": "",
+      "token_id": "token-001",
+      "valid": true
+    },
+    {
+      "claims": {},
+      "detail": "alg=none is not accepted",
+      "reason": "alg_none",
+      "token_id": "token-002",
+      "valid": false
+    },
+    {
+      "claims": {
+        "aud": [
+          "demo-client",
+          "demo-other"
+        ],
+        "exp": 946684800,
+        "iat": 1700000000,
+        "iss": "demo-issuer",
+        "nbf": 1700000000,
+        "sub": "user-1"
+      },
+      "detail": "exp 946684800 is earlier than now-30s tolerance",
+      "reason": "expired",
+      "token_id": "token-003",
+      "valid": false
+    },
+    {
+      "claims": {
+        "aud": [
+          "demo-client",
+          "demo-other"
+        ],
+        "exp": 4102444800,
+        "iat": 1700000000,
+        "iss": "demo-issuer",
+        "nbf": 4102444800,
+        "sub": "user-1"
+      },
+      "detail": "nbf 4102444800 is later than now+30s tolerance",
+      "reason": "not_yet_valid",
+      "token_id": "token-004",
+      "valid": false
+    },
+    {
+      "claims": {},
+      "detail": "kid '../../etc/passwd' contains forbidden path characters",
+      "reason": "bad_kid",
+      "token_id": "token-005",
+      "valid": false
+    },
+    {
+      "claims": {},
+      "detail": "header declares HS384 but the signature was made with HS256",
+      "reason": "alg_mismatch",
+      "token_id": "token-006",
+      "valid": false
+    }
+  ]
+}

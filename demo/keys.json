@@ -1,0 +1,7 @@
+{
+  "issuer": "demo-issuer",
+  "audience": "demo-client",
+  "keys": {
+    "demo-key-1": "demo-hmac-shared-secret-9f27c1"
+  }
+}
